@@ -1,0 +1,134 @@
+<script>window.twttr = (function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+		if (d.getElementById(id)) return t;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https://platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js, fjs);
+
+		t._e = [];
+		t.ready = function(f) {
+			t._e.push(f);
+		};
+
+		return t;
+	}(document, "script", "twitter-wjs"));</script>
+<section data-ng-controller="HomeController">
+
+	<div class="container">
+		<div class="row">
+  			<div class="col-md-12"><h3 class="text-center">Find trainings of your choice</h3></div>
+  		</div>
+
+		<div class="well">
+  		<div class="row">
+		    <div class="col-xs-6 col-md-4">
+		    	<div class="row" >  <!-- ng-controller="ExampleController" -->
+			        <div class="col-xs-8 col-xs-offset-2">
+			            <form role="form">
+			                <div class="input-group">
+			                    <input type="text" class="form-control" ng-model="myColor.name1" placeholder="City">
+			                    <div class="input-group-btn">
+									<span class="dropdown" dropdown/>
+			                        <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ><span class="caret"></span></button>
+			                        <ul id="color-dropdown-menu1" class="dropdown-menu dropdown-menu-right" dropdown-menu role="menu">
+			                            <!-- <li ng-repeat="color in colors" class="input-lg"><a href="#" ng-click="changeColor(color)">{{color.name}}</a></li> -->
+			                            <li><a href="#">Action</a></li>
+									    <li><a href="#">Another action</a></li>
+									    <li><a href="#">Something else here</a></li>
+									    <li><a href="#">Separated link</a></li>
+			                        </ul>
+			                    </div>
+							</div>
+        				</form>
+        			</div>
+    			</div>
+		    </div>
+
+		    <div class="col-xs-6 col-md-4">
+		    	<div class="row" >  <!-- ng-controller="ExampleController" -->
+			         <div class="col-xs-8 col-xs-offset-2">
+			            <form role="form">
+			                <div class="input-group">
+			                    <input type="text" class="form-control" ng-model="myColor.name2" placeholder="Training">
+			                    <div class="input-group-btn">
+			                    	<span class="dropdown" dropdown/>
+			                        <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle><span class="caret"></span></button>
+			                        <ul id="color-dropdown-menu2" class="dropdown-menu dropdown-menu-right" dropdown-menu role="menu">
+			                            <!-- <li ng-repeat="color in colors" class="input-lg"><a href="#" ng-click="changeColor(color)">{{color.name}}</a></li> -->
+			                            <li><a href="#">Action</a></li>
+									    <li><a href="#">Another action</a></li>
+									    <li><a href="#">Something else here</a></li>
+									    <li><a href="#">Separated link</a></li>
+			                        </ul>
+			                    </div>
+			                </div>
+    					</form>
+    				</div>
+		    </div>
+		</div>
+
+		    <div class="col-xs-6 col-md-4"> 
+		    	<button type="button" class="btn btn-success btn-md">Search    <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+				</button>
+		    </div>
+		</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12"><h3 class="text-center">Categories</h3></div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="text-center">
+					<a class="label label-default">PMP</a>
+					<a class="label label-primary">ITIL</a>
+					<a class="label label-success">PRINCE2</a>
+					<a class="label label-info">SCRUM</a>
+					<a class="label label-warning">SIX SIGMA</a>
+				</h3>
+			</div>
+		</div>
+		</br>
+		</br>
+		</br>
+		</br>
+		<div class="row">
+			<div class="col-xs-6 col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Blog Feed</h3>
+					</div>
+					<div class="panel-body">
+						Panel content
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="panel-title">Upcoming Courses</h3>
+					</div>
+					<div class="panel-body">
+						Panel content
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Twitter Feed</h3>
+					</div>
+					<div class="panel-body">
+						<a class="twitter-timeline" href="https://twitter.com/search?q=%23pmp%20" data-widget-id="640094995333038080">Tweets about #pmp </a>
+						<!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
