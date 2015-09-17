@@ -9,7 +9,16 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 		$scope.create = function() {
 			// Create new Result object
 			var result = new Results ({
-				name: this.name
+				companyName: this.companyName,
+				trainingName: this.trainingName,
+				city: this.city,
+				trainingType1: this.trainingType1,
+				trainingType2: this.trainingType2,
+				duration: this.duration,
+				dateFrom: this.dateFrom,
+				dateTo: this.dateTo,
+				price: this.price,
+				rating: this.rating
 			});
 
 			// Redirect after save

@@ -5,8 +5,8 @@
 
 <div class="container">
     <div class="row">
-            <span class="label label-default">Defaultaaaaaaaaa</span>
-            <span class="label label-default">Defaultbbbbbbbbb</span>
+            <span class="label label-primary">Defaultaaaaaaaaa</span>
+            <span class="label label-success">Defaultbbbbbbbbb</span>
             <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 (Modify Search)
             </a>
@@ -32,38 +32,103 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+
+    <div class="row" style="padding-top: 5px;">
+        <div class="col-md-4" style="padding-left: 0px;">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    About PMP & PMP Training
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a data-ng-repeat="result in results" data-ng-href="#!/results/{{result._id}}" class="list-group-item">
+                            <small class="list-group-item-text">
+                                Posted on
+                                <span data-ng-bind="result.created | date:'medium'"></span>
+                                by
+                                <span data-ng-bind="result.user.displayName"></span>
+                            </small>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <h4 data-ng-bind="result.companyName"></h4>
+                                </div>
+                                <div class="col-md-1 col-md-offset-8">
+                                    <h4  data-ng-bind="result.trainingName"></h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4 data-ng-bind="result.trainingType1"></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                        <h4 class="control-label">Duration:</h4>
+                                </div>
+                                <div class="col-md-3" >
+                                    <h4  style="margin-left: 20px;" data-ng-bind="result.duration+' days'"></h4>
+                                </div>
+                                <div class="col-md-3" style="margin-left: 110px;">
+                                    <h4  style="margin-left: 10px;" data-ng-bind="result.dateFrom | date:'mediumDate'"></h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 style="margin-left: 10px;" data-ng-bind="result.dateTo | date:'mediumDate'"></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <h4 class="control-label">Price:</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4  data-ng-bind="result.price"></h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <h4 class="control-label">Type:</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 data-ng-bind="result.trainingType2"></h4>
+                                </div>
+                                <div class="col-md-1"  >
+                                   <h4 class="control-label" style="margin-left: 110px;">Rating:</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 data-ng-bind="result.rating" style="margin-left: 120px;"></h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="alert alert-warning text-center" data-ng-hide="!results.$resolved || results.length">
+                        No Results yet, why don't you <a href="/#!/results/create">create one</a>?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="list-group">
-        <a data-ng-repeat="result in results" data-ng-href="#!/results/{{result._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="result.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="result.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="result.name"></h4>
-        </a>
     </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!results.$resolved || results.length">
-    	No Results yet, why don't you <a href="/#!/results/create">create one</a>?
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
