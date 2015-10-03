@@ -85,6 +85,57 @@ exports.list = function(req, res) {
 };
 
 /**
+ * Search Results
+ */
+exports.listBySearch = function(req, res) {
+	if((req.query['city'] != 'undefined') && (req.query['trainingName'] != 'undefined')) {
+		console.log('in all');
+		Result.find().where('city', new RegExp(req.query['city'], 'i')).where('trainingName', new RegExp(req.query['trainingName'], 'i'))
+			.sort('-created').populate('user', 'displayName')
+			.exec(function (err, results) {
+				if (err) {
+					return res.status(400).send({
+						message: errorHandler.getErrorMessage(err)
+					});
+				} else {
+					res.jsonp(results);
+				}
+			});
+	}
+	else if ((req.query['city'] != 'undefined') && (req.query['trainingName'] == 'undefined')) {
+		Result.find().where('city', new RegExp(req.query['city'], 'i'))
+			.sort('-created').populate('user', 'displayName')
+			.exec(function (err, results) {
+				if (err) {
+					return res.status(400).send({
+						message: errorHandler.getErrorMessage(err)
+					});
+				} else {
+					res.jsonp(results);
+				}
+			});
+	}
+	else if ((req.query['city'] == 'undefined' ) && (req.query['trainingName'] != 'undefined')) {
+		Result.find().where('trainingName', new RegExp(req.query['trainingName'], 'i'))
+			.sort('-created').populate('user', 'displayName')
+			.exec(function (err, results) {
+				if (err) {
+					return res.status(400).send({
+						message: errorHandler.getErrorMessage(err)
+					});
+				} else {
+					res.jsonp(results);
+				}
+			});
+	}
+	else {
+		return res.status(400).send({
+			message: 'Please enter valid parameters!'
+		});
+	}
+};
+
+/**
  * Result middleware
  */
 exports.resultByID = function(req, res, next, id) { 

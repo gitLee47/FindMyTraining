@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 	// Results Routes
 	app.route('/results')
-		.get(results.list)
+		.get(results.listBySearch)
 		.post(results.create);
 
 	app.route('/results/:resultId')

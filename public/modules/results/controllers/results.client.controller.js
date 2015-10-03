@@ -65,6 +65,11 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 			$scope.results = Results.query();
 		};
 
+		//Find list of Results using Search
+		$scope.searchResults = function() {
+			$scope.results = Results.query({city:$stateParams.city, trainingName:$stateParams.trainingName});
+		};
+
 		// Find existing Result
 		$scope.findOne = function() {
 			$scope.result = Results.get({ 
