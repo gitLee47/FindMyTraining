@@ -1,0 +1,133 @@
+<section data-ng-controller="TrainingprovidersController">
+    <div class="page-header">
+        <h1>New Training Provider</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="companyName">Company Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="companyName" id="companyName" class="form-control" placeholder="Company Name" required>
+                    </div>
+                    <label class="control-label" for="url">URL</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="url" id="Url" class="form-control" placeholder="url" required>
+                    </div>
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        <textarea data-ng-model="description" id="description" class="form-control" placeholder="Description" required></textarea>
+                    </div>
+                    <label class="control-label" for="address">Address</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="address" id="address" class="form-control" placeholder="Address" required>
+                    </div>
+                    <label class="control-label" for="city">City</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="city" id="city" class="form-control" placeholder="City" required>
+                    </div>
+                    <label class="control-label" for="country">Country</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="country" id="country" class="form-control" placeholder="Country" required>
+                    </div>
+                    <label class="control-label" for="contactNo">Contact No</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="contactNo" id="contactNo" class="form-control" placeholder="Contact No" required>
+                    </div>
+                    <label class="control-label" for="email">Email Id</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="email" id="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <h3>Contact Person</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="cName">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="cName" id="cName" class="form-control" placeholder="Contact Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cEmail">Email</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="cEmail" id="cEmail" class="form-control" placeholder="Contact Email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cPhone">Phone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="cPhone" id="cPhone" class="form-control" placeholder="Contact Phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Trainers</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname1">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="tname1" id="tname1" class="form-control" placeholder="Trainer Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile1">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="tprofile1" id="tprofile1" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto1">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="tphoto1" id="tphoto1" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname2">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="tname2" id="tname2" class="form-control" placeholder="Trainer Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile2">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="tprofile2" id="tprofile2" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto2">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="tphoto2" id="tphoto2" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname3">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="tname3" id="tname3" class="form-control" placeholder="Trainer Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile3">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="tprofile3" id="tprofile3" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto3">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="tphoto3" id="tphoto3" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

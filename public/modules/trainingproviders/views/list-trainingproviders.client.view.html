@@ -1,0 +1,19 @@
+<section data-ng-controller="TrainingprovidersController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Trainingproviders</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="trainingprovider in trainingproviders" data-ng-href="#!/trainingproviders/{{trainingprovider._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="trainingprovider.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="trainingprovider.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="trainingprovider.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!trainingproviders.$resolved || trainingproviders.length">
+    	No Trainingproviders yet, why don't you <a href="/#!/trainingproviders/create">create one</a>?
+    </div>
+</section>
