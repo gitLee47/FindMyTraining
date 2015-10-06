@@ -2,65 +2,70 @@
 
 // Trainingproviders controller
 angular.module('trainingproviders').controller('TrainingprovidersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Trainingproviders',
-	function($scope, $stateParams, $location, Authentication, Trainingproviders) {
-		$scope.authentication = Authentication;
+    function($scope, $stateParams, $location, Authentication, Trainingproviders) {
+        $scope.authentication = Authentication;
 
-		// Create new Trainingprovider
-		$scope.create = function() {
-			// Create new Trainingprovider object
-			var trainingprovider = new Trainingproviders ({
-				name: this.name
-			});
+        // Create new Trainingprovider
+        $scope.create = function() {
 
-			// Redirect after save
-			trainingprovider.$save(function(response) {
-				$location.path('trainingproviders/' + response._id);
+            // Create new Trainingprovider object
+            var trainingprovider = new Trainingproviders ({
+                companyName: this.companyName,
+                trainer1: []
+            });
 
-				// Clear form fields
-				$scope.name = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+            trainingprovider.trainer1.push({trainerName: this.trainer1.trainerName,  profile: this.trainer1.profile, photo: this.trainer1.photo});
+            console.log("Reached here1");
 
-		// Remove existing Trainingprovider
-		$scope.remove = function(trainingprovider) {
-			if ( trainingprovider ) { 
-				trainingprovider.$remove();
+            // Redirect after save
+            trainingprovider.$save(function(response) {
+                $location.path('trainingproviders/' + response._id);
 
-				for (var i in $scope.trainingproviders) {
-					if ($scope.trainingproviders [i] === trainingprovider) {
-						$scope.trainingproviders.splice(i, 1);
-					}
-				}
-			} else {
-				$scope.trainingprovider.$remove(function() {
-					$location.path('trainingproviders');
-				});
-			}
-		};
+                // Clear form fields
+                $scope.companyName = '';
+            }, function(errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
 
-		// Update existing Trainingprovider
-		$scope.update = function() {
-			var trainingprovider = $scope.trainingprovider;
+        // Remove existing Trainingprovider
+        $scope.remove = function(trainingprovider) {
+            if ( trainingprovider ) {
+                trainingprovider.$remove();
 
-			trainingprovider.$update(function() {
-				$location.path('trainingproviders/' + trainingprovider._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+                for (var i in $scope.trainingproviders) {
+                    if ($scope.trainingproviders [i] === trainingprovider) {
+                        $scope.trainingproviders.splice(i, 1);
+                    }
+                }
+            } else {
+                $scope.trainingprovider.$remove(function() {
+                    $location.path('trainingproviders');
+                });
+            }
+        };
 
-		// Find a list of Trainingproviders
-		$scope.find = function() {
-			$scope.trainingproviders = Trainingproviders.query();
-		};
+        // Update existing Trainingprovider
+        $scope.update = function() {
+            var trainingprovider = $scope.trainingprovider;
 
-		// Find existing Trainingprovider
-		$scope.findOne = function() {
-			$scope.trainingprovider = Trainingproviders.get({ 
-				trainingproviderId: $stateParams.trainingproviderId
-			});
-		};
-	}
+            trainingprovider.$update(function() {
+                $location.path('trainingproviders/' + trainingprovider._id);
+            }, function(errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Find a list of Trainingproviders
+        $scope.find = function() {
+            $scope.trainingproviders = Trainingproviders.query();
+        };
+
+        // Find existing Trainingprovider
+        $scope.findOne = function() {
+            $scope.trainingprovider = Trainingproviders.get({
+                trainingproviderId: $stateParams.trainingproviderId
+            });
+        };
+    }
 ]);
