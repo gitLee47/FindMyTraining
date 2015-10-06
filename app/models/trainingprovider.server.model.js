@@ -24,8 +24,29 @@ var TrainerSchema = new Schema({
     }
 });
 
+var ContactSchema = new Schema({
+    cName: {
+        type: String,
+        default: '',
+        //required: 'Please fill Training Provider Contact Name',
+        trim: true
+    },
+    cEmail: {
+        type: String,
+        default: '',
+        //required: 'Please fill Training Provider Contact Email',
+        trim: true
+    },
+    cPhone: {
+        type: Number,
+        default: '',
+        //required: 'Please fill Training Provider Contact phone',
+        trim: true
+    }
+});
+
 /**
- * Trainingprovider Schema
+ * Training provider Schema
  */
 var TrainingproviderSchema = new Schema({
     companyName: {
@@ -74,27 +95,13 @@ var TrainingproviderSchema = new Schema({
         //required: 'Please fill Training Provider email',
         trim: true
     },
-    cName: {
-        type: String,
-        default: '',
-        //required: 'Please fill Training Provider Contact Name',
-        trim: true
-    },
-    cEmail: {
-        type: String,
-        default: '',
-        //required: 'Please fill Training Provider Contact Email',
-        trim: true
-    },
-    cPhone: {
-        type: Number,
-        default: '',
-        //required: 'Please fill Training Provider Contact phone',
-        trim: true
-    },
+    contact1: [ContactSchema],
+    contact2: [ContactSchema],
     trainer1: [TrainerSchema],
     trainer2: [TrainerSchema],
     trainer3: [TrainerSchema],
+    trainer4: [TrainerSchema],
+    trainer5: [TrainerSchema],
     created: {
         type: Date,
         default: Date.now

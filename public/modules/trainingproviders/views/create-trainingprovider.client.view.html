@@ -12,7 +12,7 @@
                     </div>
                     <label class="control-label" for="url">URL</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="url" id="Url" class="form-control" placeholder="url" required>
+                        <input type="text" data-ng-model="url" id="Url" class="form-control" placeholder="Url" required>
                     </div>
                     <label class="control-label" for="description">Description</label>
                     <div class="controls">
@@ -38,24 +38,44 @@
                     <div class="controls">
                         <input type="text" data-ng-model="email" id="email" class="form-control" placeholder="Email" required>
                     </div>
-                    <h3>Contact Person</h3>
+                    <h3>Contact Persons</h3>
                     <div class="row">
                         <div class="col-md-4">
-                            <label class="control-label" for="cName">Name</label>
+                            <label class="control-label" for="cName1">Name</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="cName" id="cName" class="form-control" placeholder="Contact Name" required>
+                                <input type="text" data-ng-model="contact1.cName" id="cName1" class="form-control" placeholder="Contact Name" required>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label class="control-label" for="cEmail">Email</label>
+                            <label class="control-label" for="cEmail1">Email</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="cEmail" id="cEmail" class="form-control" placeholder="Contact Email" required>
+                                <input type="text" data-ng-model="contact1.cEmail" id="cEmail1" class="form-control" placeholder="Contact Email" required>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label class="control-label" for="cPhone">Phone</label>
+                            <label class="control-label" for="cPhone1">Phone</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="cPhone" id="cPhone" class="form-control" placeholder="Contact Phone" required>
+                                <input type="text" data-ng-model="contact1.cPhone" id="cPhone1" class="form-control" placeholder="Contact Phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="cName2">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="contact2.cName" id="cName2" class="form-control" placeholder="Contact Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cEmail2">Email</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="contact2.cEmail" id="cEmail2" class="form-control" placeholder="Contact Email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cPhone2">Phone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="contact2.cPhone" id="cPhone2" class="form-control" placeholder="Contact Phone" required>
                             </div>
                         </div>
                     </div>
@@ -84,19 +104,19 @@
                         <div class="col-md-4">
                             <label class="control-label" for="tname2">Name</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="tname2" id="tname2" class="form-control" placeholder="Trainer Name" required>
+                                <input type="text" data-ng-model="trainer2.trainerName" id="tname2" class="form-control" placeholder="Trainer Name" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label" for="tprofile2">Profile</label>
                             <div class="controls">
-                                <textarea data-ng-model="tprofile2" id="tprofile2" class="form-control" placeholder="Trainer Profile" required></textarea>
+                                <textarea data-ng-model="trainer2.profile" id="tprofile2" class="form-control" placeholder="Trainer Profile" required></textarea>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label" for="tphoto2">Photo</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="tphoto2" id="tphoto2" class="form-control" placeholder="Trainer Photo" required>
+                                <input type="text" data-ng-model="trainer2.photo" id="tphoto2" class="form-control" placeholder="Trainer Photo" required>
                             </div>
                         </div>
                     </div>
@@ -104,19 +124,59 @@
                         <div class="col-md-4">
                             <label class="control-label" for="tname3">Name</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="tname3" id="tname3" class="form-control" placeholder="Trainer Name" required>
+                                <input type="text" data-ng-model="trainer3.trainerName" id="tname3" class="form-control" placeholder="Trainer Name" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label" for="tprofile3">Profile</label>
                             <div class="controls">
-                                <textarea data-ng-model="tprofile3" id="tprofile3" class="form-control" placeholder="Trainer Profile" required></textarea>
+                                <textarea data-ng-model="trainer3.profile" id="tprofile3" class="form-control" placeholder="Trainer Profile" required></textarea>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label" for="tphoto3">Photo</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="tphoto3" id="tphoto3" class="form-control" placeholder="Trainer Photo" required>
+                                <input type="text" data-ng-model="trainer3.photo" id="tphoto3" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname4">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainer4.trainerName" id="tname4" class="form-control" placeholder="Trainer Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile4">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainer4.profile" id="tprofile4" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto4">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainer4.photo" id="tphoto4" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname5">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainer5.trainerName" id="tname5" class="form-control" placeholder="Trainer Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile5">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainer5.profile" id="tprofile5" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto5">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainer5.photo" id="tphoto5" class="form-control" placeholder="Trainer Photo" required>
                             </div>
                         </div>
                     </div>
