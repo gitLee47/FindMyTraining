@@ -1,8 +1,8 @@
 'use strict';
 
 // Results controller
-angular.module('results').controller('ResultsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Results',
-	function($scope, $stateParams, $location, Authentication, Results) {
+angular.module('results').controller('ResultsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Results', 'Locations',
+	function($scope, $stateParams, $location, Authentication, Results, Locations) {
 		$scope.authentication = Authentication;
 
 		// Create new Result
@@ -20,7 +20,8 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 				price: this.price,
 				rating: this.rating
 			});
-
+			alert(this.city);
+			//alert($scope.cityDrop2);
 			// Redirect after save
 			result.$save(function(response) {
 				$location.path('results/' + response._id);
@@ -63,6 +64,11 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 		// Find a list of Results
 		$scope.find = function() {
 			$scope.results = Results.query();
+		};
+
+		// Find a list of Cities and Course Type
+		$scope.findCitiesCourseTypes = function() {
+			$scope.locations = Locations.query();
 		};
 
 		//Find list of Results using Search

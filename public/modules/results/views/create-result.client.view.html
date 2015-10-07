@@ -1,4 +1,4 @@
-<section data-ng-controller="ResultsController">
+<section data-ng-controller="ResultsController" data-ng-init="findCitiesCourseTypes()">
     <div class="page-header">
         <h1>New Result</h1>
     </div>
@@ -14,10 +14,10 @@
                     <div class="controls">
                         <input type="text" data-ng-model="trainingName" id="trainingName" class="form-control" placeholder="trainingName" required>
                     </div>
-                    <label class="control-label" for="city">City</label>
-                    <div class="controls">
+                    <!--<label class="control-label" for="city99">City</label>-->
+                    <!--<div class="controls">
                         <input type="text" data-ng-model="city" id="city" class="form-control" placeholder="City" required>
-                    </div>
+                    </div>-->
                     <label class="control-label" for="trainingType1">trainingType1</label>
                     <div class="controls">
                         <input type="text" data-ng-model="trainingType1" id="trainingType1" class="form-control" placeholder="trainingType1" required>
@@ -46,6 +46,24 @@
                     <div class="controls">
                         <input type="text" data-ng-model="rating" id="rating" class="form-control" placeholder="Rating" required>
                     </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" data-ng-model="city99" id="cityDrop" placeholder="City">
+                            <div class="input-group-btn">
+                                <span class="dropdown" dropdown/>
+                                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ><span class="caret"></span></button>
+                                <ul id="color-dropdown-menu1" class="dropdown-menu dropdown-menu-right" dropdown-menu role="menu">
+                                    <li ng-repeat="location in locations" class="input-lg"><a href="#" ng-click="changeColor(location)">{{location.city}}</a></li>
+                                    <!--<li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li><a href="#">Separated link</a></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    <select>
+                        <option ng-repeat="location in locations" data-ng-model="city" id="cityDrop2" value="{{location.city}}">{{location.city}}</option>
+                    </select>
+
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
