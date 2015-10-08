@@ -60,8 +60,8 @@
                                 </ul>
                             </div>
                         </div>
-                    <select>
-                        <option ng-repeat="location in locations" data-ng-model="city" id="cityDrop2" value="{{location.city}}">{{location.city}}</option>
+                    <select data-ng-model="city" id="cityDrop2">
+                        <option ng-repeat="location in locations"  value="{{location._id}}">{{location.city}}</option>
                     </select>
 
                 </div>
