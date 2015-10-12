@@ -4,7 +4,6 @@
 angular.module('results').controller('ResultsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Results', 'Locations', 'Coursecategories', 'Trainingproviders',
 	function($scope, $stateParams, $location, Authentication, Results, Locations, Coursecategories, Trainingproviders) {
 		$scope.authentication = Authentication;
-
 		// Create new Result
 		$scope.create = function() {
 			// Create new Result object
@@ -23,8 +22,8 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 			});
 			// Redirect after save
 			result.$save(function(response) {
-				$location.path('results/' + response._id);
-
+				//$location.path('results/' + response._id);
+                $location.path('view-courses');
 				// Clear form fields
 				$scope.name = '';
 			}, function(errorResponse) {
@@ -64,28 +63,6 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 		$scope.find = function() {
 			$scope.results = Results.query({city:'viewer', courseCategory:'viewer'});
 
-		};
-
-		// Find a list of CourseCategory
-		$scope.findCourseCategory = function(result) {
-
-			$scope.courseToShow = '';
-			$scope.courseToShow = Coursecategories.get({
-				coursecategoryId: result
-			});
-		};
-
-		// Find a list of TrainingProviders
-		$scope.findTrainingProviders = function(result) {
-			$scope.trainingProvidersToShow = Trainingproviders.get({
-				trainingproviderId: result
-			});
-			$scope.$apply();
-		};
-
-		$scope.clear = function(){
-			$scope.courseToShow ='';
-			$scope.trainingProvidersToShow = '';
 		};
 
 		// Find a list of Cities and Course Type and TPs

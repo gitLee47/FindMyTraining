@@ -12,10 +12,10 @@
 			</small>
 			<div class="row">
 				<div class="col-md-4">
-					<h4 class="list-group-item-heading" data-ng-init="findTrainingProviders(result.trainingProvider);" data-ng-bind="trainingProvidersToShow.companyName"></h4>
+					<h4 class="list-group-item-heading"  data-ng-bind="result.trainingProvider.companyName"></h4>
 				</div>
 				<div class="col-md-4">
-					<h4 class="list-group-item-heading" data-ng-init="findCourseCategory(result.courseCategory);" data-ng-bind="courseToShow.courseName"></h4>
+					<h4 class="list-group-item-heading"  data-ng-bind="result.courseCategory.courseName"></h4>
 				</div>
 				<div class="col-md-2">
 					<h4 class="list-group-item-heading" data-ng-bind="result.deliveryType"></h4>

@@ -89,7 +89,7 @@ exports.list = function(req, res) {
  */
 exports.listBySearch = function(req, res) {
 	if ((req.query['city'] == 'viewer' ) && (req.query['courseCategory'] == 'viewer')) {
-		Result.find().sort('-addedDate').populate('addedBy', 'displayName').exec(function(err, results) {
+		Result.find().sort('-addedDate').populate('addedBy', 'displayName').populate('trainingProvider','companyName').populate('courseCategory','courseName').exec(function(err, results) {
 			if (err) {
 				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
