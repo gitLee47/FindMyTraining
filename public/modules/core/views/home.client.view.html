@@ -15,7 +15,7 @@
 		return t;
 	}(document, "script", "twitter-wjs"));</script>
 
-<section data-ng-controller="HomeController">
+<section data-ng-controller="HomeController" data-ng-init="getDropDowns()">
 
 	<div class="container">
 		<div class="row">
@@ -29,20 +29,26 @@
 		    	<div class="row" >  <!-- ng-controller="ExampleController" -->
 			        <div class="col-xs-8 col-xs-offset-2">
 
-			                <div class="input-group">
+			                <!--<div class="input-group">
 			                    <input type="text" class="form-control" data-ng-model="city" id="city" placeholder="City">
 			                    <div class="input-group-btn">
 									<span class="dropdown" dropdown/>
 			                        <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ><span class="caret"></span></button>
 			                        <ul id="color-dropdown-menu1" class="dropdown-menu dropdown-menu-right" dropdown-menu role="menu">
-			                            <!-- <li ng-repeat="color in colors" class="input-lg"><a href="#" ng-click="changeColor(color)">{{color.name}}</a></li> -->
+			                            &lt;!&ndash; <li ng-repeat="color in colors" class="input-lg"><a href="#" ng-click="changeColor(color)">{{color.name}}</a></li> &ndash;&gt;
 			                            <li><a href="#">Action</a></li>
 									    <li><a href="#">Another action</a></li>
 									    <li><a href="#">Something else here</a></li>
 									    <li><a href="#">Separated link</a></li>
 			                        </ul>
 			                    </div>
-							</div>
+							</div>-->
+						<div class="controls">
+							<select class="form-control" data-ng-model="city" id="city">
+								<option value="" disabled selected>Select City</option>
+								<option ng-repeat="location in locations"  value="{{location._id}}">{{location.city}}</option>
+							</select>
+						</div>
 
         			</div>
     			</div>
@@ -51,20 +57,26 @@
 		    <div class="col-xs-6 col-md-4">
 		    	<div class="row" >  <!-- ng-controller="ExampleController" -->
 			         <div class="col-xs-8 col-xs-offset-2">
-			                <div class="input-group">
+			               <!-- <div class="input-group">
 			                    <input type="text" class="form-control" data-ng-model="trainingName" id="trainingName" placeholder="Training">
 			                    <div class="input-group-btn">
 			                    	<span class="dropdown" dropdown/>
 			                        <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle><span class="caret"></span></button>
 			                        <ul id="color-dropdown-menu2" class="dropdown-menu dropdown-menu-right" dropdown-menu role="menu">
-			                            <!-- <li ng-repeat="color in colors" class="input-lg"><a href="#" ng-click="changeColor(color)">{{color.name}}</a></li> -->
+			                            &lt;!&ndash; <li ng-repeat="color in colors" class="input-lg"><a href="#" ng-click="changeColor(color)">{{color.name}}</a></li> &ndash;&gt;
 			                            <li><a href="#">Action</a></li>
 									    <li><a href="#">Another action</a></li>
 									    <li><a href="#">Something else here</a></li>
 									    <li><a href="#">Separated link</a></li>
 			                        </ul>
 			                    </div>
-			                </div>
+			                </div>-->
+						 <div class="controls">
+							 <select class="form-control" data-ng-model="courseCategory" id="courseCategory">
+								 <option value="" disabled selected>Select Course</option>
+								 <option ng-repeat="coursecategory in coursecategories"  value="{{coursecategory._id}}">{{coursecategory.courseName}}</option>
+							 </select>
+						 </div>
     				</div>
 		    </div>
 		</div>

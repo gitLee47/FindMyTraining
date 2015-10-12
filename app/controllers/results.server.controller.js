@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
  */
 exports.create = function(req, res) {
 	var result = new Result(req.body);
-	result.user = req.user;
+	result.addedBy = req.user;
 
 	result.save(function(err) {
 		if (err) {
@@ -72,8 +72,8 @@ exports.delete = function(req, res) {
 /**
  * List of Results
  */
-exports.list = function(req, res) { 
-	Result.find().sort('-created').populate('user', 'displayName').exec(function(err, results) {
+exports.list = function(req, res) {
+	Result.find().sort('-addedDate').populate('addedBy', 'displayName').exec(function(err, results) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,10 +88,21 @@ exports.list = function(req, res) {
  * Search Results
  */
 exports.listBySearch = function(req, res) {
-	if((req.query['city'] != 'undefined') && (req.query['trainingName'] != 'undefined')) {
+	if ((req.query['city'] == 'viewer' ) && (req.query['courseCategory'] == 'viewer')) {
+		Result.find().sort('-addedDate').populate('addedBy', 'displayName').exec(function(err, results) {
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+				res.jsonp(results);
+			}
+		});
+	}
+	else if((req.query['city'] != 'undefined') && (req.query['courseCategory'] != 'undefined')) {
 		console.log('in all');
-		Result.find().where('city', new RegExp(req.query['city'], 'i')).where('trainingName', new RegExp(req.query['trainingName'], 'i'))
-			.sort('-created').populate('user', 'displayName')
+		Result.find().where('city').equals(req.query['city']).where('courseCategory').equals(req.query['courseCategory'])
+			.sort('-addedDate').populate('addedBy', 'displayName')
 			.exec(function (err, results) {
 				if (err) {
 					return res.status(400).send({
@@ -102,9 +113,9 @@ exports.listBySearch = function(req, res) {
 				}
 			});
 	}
-	else if ((req.query['city'] != 'undefined') && (req.query['trainingName'] == 'undefined')) {
-		Result.find().where('city', new RegExp(req.query['city'], 'i'))
-			.sort('-created').populate('user', 'displayName')
+	else if ((req.query['city'] != 'undefined') && (req.query['courseCategory'] == 'undefined')) {
+		Result.find().where('city').equals(req.query['city'])   //Result.find().where('city', new RegExp(req.query['city'], 'i'))
+			.sort('-addedDate').populate('addedBy', 'displayName')
 			.exec(function (err, results) {
 				if (err) {
 					return res.status(400).send({
@@ -115,9 +126,9 @@ exports.listBySearch = function(req, res) {
 				}
 			});
 	}
-	else if ((req.query['city'] == 'undefined' ) && (req.query['trainingName'] != 'undefined')) {
-		Result.find().where('trainingName', new RegExp(req.query['trainingName'], 'i'))
-			.sort('-created').populate('user', 'displayName')
+	else if ((req.query['city'] == 'undefined' ) && (req.query['courseCategory'] != 'undefined')) {
+		Result.find().where('courseCategory').equals(req.query['courseCategory'])
+			.sort('-addedDate').populate('addedBy', 'displayName')
 			.exec(function (err, results) {
 				if (err) {
 					return res.status(400).send({
@@ -139,7 +150,7 @@ exports.listBySearch = function(req, res) {
  * Result middleware
  */
 exports.resultByID = function(req, res, next, id) { 
-	Result.findById(id).populate('user', 'displayName').exec(function(err, result) {
+	Result.findById(id).populate('addedBy', 'displayName').exec(function(err, result) {
 		if (err) return next(err);
 		if (! result) return next(new Error('Failed to load Result ' + id));
 		req.result = result ;
@@ -151,7 +162,7 @@ exports.resultByID = function(req, res, next, id) {
  * Result authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.result.user.id !== req.user.id) {
+	if (req.result.addedBy.id !== req.user.id) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();

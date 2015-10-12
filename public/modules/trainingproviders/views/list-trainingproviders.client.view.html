@@ -1,17 +1,34 @@
 <section data-ng-controller="TrainingprovidersController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Trainingproviders</h1>
+        <h1>Training Providers</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="trainingprovider in trainingproviders" data-ng-href="#!/trainingproviders/{{trainingprovider._id}}" class="list-group-item">
+        <div data-ng-repeat="trainingprovider in trainingproviders"  class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
-				<span data-ng-bind="trainingprovider.created | date:'medium'"></span>
+				<span data-ng-bind="trainingprovider.addedDate | date:'medium'"></span>
 				by
-				<span data-ng-bind="trainingprovider.user.displayName"></span>
+				<span data-ng-bind="trainingprovider.addedBy.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="trainingprovider.name"></h4>
-        </a>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 class="list-group-item-heading" data-ng-bind="trainingprovider.companyName"></h4>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="list-group-item-heading" data-ng-bind="trainingprovider.url"></h4>
+                </div>
+                <div class="col-md-4">
+                    <div class="pull-right">
+                        <a class="btn btn-primary" href="/#!/trainingproviders/{{trainingprovider._id}}/edit">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a class="btn btn-primary" data-ng-click="remove(trainingprovider);">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!trainingproviders.$resolved || trainingproviders.length">
     	No Trainingproviders yet, why don't you <a href="/#!/trainingproviders/create">create one</a>?

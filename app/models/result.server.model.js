@@ -28,39 +28,41 @@ var ResultSchema = new Schema({
  */
 
 
-var ResultTestSchema = new Schema({
-	companyName: {
-		type: String,
-		default: '',
+var CoursesSchema = new Schema({
+	trainingProvider: {
+		type: Schema.ObjectId,
 		required: 'Please fill Company name',
-		trim: true
+		ref: 'Trainingprovider'
 	},
-	trainingName: {
-		type: String,
-		default: '',
+	courseCategory: {
+		type: Schema.ObjectId,
 		required: 'Please fill training name',
-		trim: true
+		ref: 'Coursecategory'
 	},
 	city: {
-		type: String,
-		default: '',
+		type: Schema.ObjectId,
 		required: 'Please city name',
-		trim: true
+		ref: 'Location'
 	},
-	trainingType1: {
+	deliveryType: {
 		type: String,
 		default: '',
-		required: 'Please fill type1',
+		required: 'Please fill Delivery type',
 		trim: true
 	},
-	trainingType2: {
+	timing: {
 		type: String,
 		default: '',
-		required: 'Please fill type2',
+		required: 'Please fill Timing',
 		trim: true
 	},
 	duration: {
 		type: Number,
+		default: '',
+		trim: true
+	},
+	durationType: {
+		type: String,
 		default: '',
 		trim: true
 	},
@@ -76,18 +78,19 @@ var ResultTestSchema = new Schema({
 		type: Number,
 		trim: true
 	},
-	rating: {
-		type: Number,
+	currency: {
+		type: String,
 		trim: true
 	},
-	created: {
+	addedDate: {
 		type: Date,
 		default: Date.now
 	},
-	user: {
+	addedBy: {
 		type: Schema.ObjectId,
-		ref: 'User'
+		ref: 'User',
+		required: 'Please login to add course!'
 	}
 });
 
-mongoose.model('Result', ResultTestSchema);
+mongoose.model('Result', CoursesSchema);

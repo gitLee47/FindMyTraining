@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row">
-            <span class="label label-primary" data-ng-bind="results[0].city"></span>
+            <span class="label label-primary" data-ng-bind="results[0].city.city"></span>
             <span class="label label-success" data-ng-bind="results[0].trainingName">Defaultbbbbbbbbb</span>
             <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 (Modify Search)
@@ -50,9 +50,9 @@
                         <a data-ng-repeat="result in results" data-ng-href="#!/results/{{result._id}}" class="list-group-item">
                             <small class="list-group-item-text">
                                 Posted on
-                                <span data-ng-bind="result.created | date:'medium'"></span>
+                                <span data-ng-bind="result.addedDate | date:'medium'"></span>
                                 by
-                                <span data-ng-bind="result.user.displayName"></span>
+                                <span data-ng-bind="result.addedBy.displayName"></span>
                             </small>
                             <div class="row">
                                 <div class="col-md-1">
@@ -102,7 +102,7 @@
                         </a>
                     </div>
                     <div class="alert alert-warning text-center" data-ng-hide="!results.$resolved || results.length">
-                        No Results yet, why don't you <a href="/#!/results/create">create one</a>?
+                       Sorry No Results matching your criteria!!
                     </div>
                 </div>
             </div>

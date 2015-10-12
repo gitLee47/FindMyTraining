@@ -1,14 +1,184 @@
 <section data-ng-controller="TrainingprovidersController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Trainingprovider</h1>
+        <h1>Edit Training Provider</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="companyName">Company Name</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="trainingprovider.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="trainingprovider.companyName" id="companyName" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="url">URL</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="trainingprovider.url" id="Url" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        <textarea data-ng-model="trainingprovider.description" id="description" class="form-control" required></textarea>
+                    </div>
+                    <label class="control-label" for="address">Address</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="trainingprovider.address" id="address" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="city">City</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="trainingprovider.city" id="city" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="country">Country</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="trainingprovider.country" id="country" class="form-control"required>
+                    </div>
+                    <label class="control-label" for="contactNo">Contact No</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="trainingprovider.contactNo" id="contactNo" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="email">Email Id</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="trainingprovider.email" id="email" class="form-control" required>
+                    </div>
+                    <h3>Contact Persons</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="cName1">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.contact1[0].cName" id="cName1" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cEmail1">Email</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.contact1[0].cEmail" id="cEmail1" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cPhone1">Phone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.contact1[0].cPhone" id="cPhone1" class="form-control" placeholder="Contact Phone"  required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="cName2">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.contact2[0].cName" id="cName2" data-ng-init="contact2.cName=''" class="form-control" placeholder="Contact Name"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cEmail2">Email</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.contact2[0].cEmail" id="cEmail2" class="form-control" placeholder="Contact Email"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="cPhone2">Phone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.contact2[0].cPhone" id="cPhone2" class="form-control" placeholder="Contact Phone"  required>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Trainers</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname1">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer1[0].trainerName" id="tname1"  class="form-control"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile1">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainingprovider.trainer1[0].profile" id="tprofile1" class="form-control" placeholder="Trainer Profile"  required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto1">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer1[0].photo" id="tphoto1" class="form-control" placeholder="Trainer Photo"  required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname2">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer2[0].trainerName" id="tname2" data-ng-init="trainer2.trainerName=''" class="form-control" placeholder="Trainer Name"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile2">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainingprovider.trainer2[0].profile" id="tprofile2" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto2">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer2[0].photo" id="tphoto2" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname3">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer3[0].trainerName" id="tname3" data-ng-init="trainer3.trainerName=''" class="form-control" placeholder="Trainer Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile3">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainingprovider.trainer3[0].profile" id="tprofile3" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto3">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer3[0].photo" id="tphoto3" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname4">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer4[0].trainerName" id="tname4" data-ng-init="trainer4.trainerName=''" class="form-control" placeholder="Trainer Name"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile4">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainingprovider.trainer4[0].profile" id="tprofile4" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto4">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer4[0].photo" id="tphoto4" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label" for="tname5">Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer5[0].trainerName" id="tname5" data-ng-init="trainer5.trainerName=''" class="form-control" placeholder="Trainer Name"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tprofile5">Profile</label>
+                            <div class="controls">
+                                <textarea data-ng-model="trainingprovider.trainer5[0].profile" id="tprofile5" class="form-control" placeholder="Trainer Profile" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="tphoto5">Photo</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="trainingprovider.trainer5[0].photo" id="tphoto5" class="form-control" placeholder="Trainer Photo" required>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">

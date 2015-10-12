@@ -52,13 +52,13 @@ var TrainingproviderSchema = new Schema({
     companyName: {
         type: String,
         default: '',
-        //required: 'Please fill Training Provider name',
+        required: 'Please fill Training Provider name',
         trim: true
     },
     url: {
         type: String,
         default: '',
-        //required: 'Please fill Training Provider URl',
+        required: 'Please fill Training Provider URl',
         trim: true
     },
     description: {
@@ -102,11 +102,11 @@ var TrainingproviderSchema = new Schema({
     trainer3: [TrainerSchema],
     trainer4: [TrainerSchema],
     trainer5: [TrainerSchema],
-    created: {
+    addedDate: {
         type: Date,
         default: Date.now
     },
-    user: {
+    addedBy: {
         type: Schema.ObjectId,
         ref: 'User'
     }

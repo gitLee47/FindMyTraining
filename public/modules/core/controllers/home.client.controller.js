@@ -1,21 +1,21 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', '$location',
-	function($scope, Authentication, $location) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', '$location', 'Locations', 'Coursecategories',
+	function($scope, Authentication, $location, Locations, Coursecategories) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
 
-		// Create new Result
+		// Search Result
 		$scope.search = function() {
-
-
-			// Redirect after save
-
-				$location.path('results/' + this.city+ '/' + this.trainingName);
-
-
+				$location.path('results/' + this.city+ '/' + this.courseCategory);
 		};
+
+		// Find a list of Cities and Course Type and TPs
+		$scope.getDropDowns = function() {
+			$scope.locations = Locations.query();
+			$scope.coursecategories = Coursecategories.query();
+		}
 	}
 ]);

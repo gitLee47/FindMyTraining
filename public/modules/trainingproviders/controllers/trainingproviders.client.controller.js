@@ -40,8 +40,8 @@ angular.module('trainingproviders').controller('TrainingprovidersController', ['
 
             // Redirect after save
             trainingprovider.$save(function(response) {
-                $location.path('trainingproviders/' + response._id);
-
+               /// $location.path('trainingproviders/' + response._id);
+                $location.path('trainingproviders');
                 // Clear form fields
                 $scope.companyName = '';
             }, function(errorResponse) {
@@ -71,7 +71,8 @@ angular.module('trainingproviders').controller('TrainingprovidersController', ['
             var trainingprovider = $scope.trainingprovider;
 
             trainingprovider.$update(function() {
-                $location.path('trainingproviders/' + trainingprovider._id);
+               // $location.path('trainingproviders/' + trainingprovider._id);
+                $location.path('trainingproviders');
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });

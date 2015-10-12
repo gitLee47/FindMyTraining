@@ -5,12 +5,16 @@ angular.module('results').config(['$stateProvider',
 	function($stateProvider) {
 		// Results state routing
 		$stateProvider.
+		state('view-courses', {
+			url: '/view-courses',
+			templateUrl: 'modules/results/views/view-courses.client.view.html'
+		}).
 		/*state('listResults', {
 			url: '/results',
 			templateUrl: 'modules/results/views/list-results.client.view.html'
 		}).*/
 		state('searchResults', {
-			url: '/results/:city/:trainingName',
+			url: '/results/:city/:courseCategory',
 			templateUrl: 'modules/results/views/list-results.client.view.html'
 		}).
 		state('createResult', {

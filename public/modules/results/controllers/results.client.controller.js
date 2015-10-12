@@ -1,27 +1,26 @@
 'use strict';
 
 // Results controller
-angular.module('results').controller('ResultsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Results', 'Locations',
-	function($scope, $stateParams, $location, Authentication, Results, Locations) {
+angular.module('results').controller('ResultsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Results', 'Locations', 'Coursecategories', 'Trainingproviders',
+	function($scope, $stateParams, $location, Authentication, Results, Locations, Coursecategories, Trainingproviders) {
 		$scope.authentication = Authentication;
 
 		// Create new Result
 		$scope.create = function() {
 			// Create new Result object
 			var result = new Results ({
-				companyName: this.companyName,
-				trainingName: this.trainingName,
+				trainingProvider: this.trainingProvider,
+				courseCategory: this.courseCategory,
 				city: this.city,
-				trainingType1: this.trainingType1,
-				trainingType2: this.trainingType2,
+				deliveryType: this.deliveryType,
+				timing: this.timing,
 				duration: this.duration,
+				durationType: this.durationType,
 				dateFrom: this.dateFrom,
 				dateTo: this.dateTo,
 				price: this.price,
-				rating: this.rating
+				currency: this.currency
 			});
-			alert(this.city);
-			//alert($scope.cityDrop2);
 			// Redirect after save
 			result.$save(function(response) {
 				$location.path('results/' + response._id);
@@ -61,19 +60,44 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 			});
 		};
 
-		// Find a list of Results
+		// Find a list of Courses
 		$scope.find = function() {
-			$scope.results = Results.query();
+			$scope.results = Results.query({city:'viewer', courseCategory:'viewer'});
+
 		};
 
-		// Find a list of Cities and Course Type
-		$scope.findCitiesCourseTypes = function() {
+		// Find a list of CourseCategory
+		$scope.findCourseCategory = function(result) {
+
+			$scope.courseToShow = '';
+			$scope.courseToShow = Coursecategories.get({
+				coursecategoryId: result
+			});
+		};
+
+		// Find a list of TrainingProviders
+		$scope.findTrainingProviders = function(result) {
+			$scope.trainingProvidersToShow = Trainingproviders.get({
+				trainingproviderId: result
+			});
+			$scope.$apply();
+		};
+
+		$scope.clear = function(){
+			$scope.courseToShow ='';
+			$scope.trainingProvidersToShow = '';
+		};
+
+		// Find a list of Cities and Course Type and TPs
+		$scope.getDropDowns = function() {
 			$scope.locations = Locations.query();
+			$scope.coursecategories = Coursecategories.query();
+			$scope.trainingproviders = Trainingproviders.query();
 		};
 
 		//Find list of Results using Search
 		$scope.searchResults = function() {
-			$scope.results = Results.query({city:$stateParams.city, trainingName:$stateParams.trainingName});
+			$scope.results = Results.query({city:$stateParams.city, courseCategory:$stateParams.courseCategory});
 		};
 
 		// Find existing Result
