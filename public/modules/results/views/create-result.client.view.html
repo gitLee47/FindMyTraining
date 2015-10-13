@@ -77,13 +77,13 @@
                         <div class="col-md-6">
                             <label class="control-label" for="dateFrom">Date From</label>
                             <div class="controls">
-                                <input type="date" data-ng-model="dateFrom" id="dateFrom" class="form-control" required>
+                                <datetimepicker data-ng-model="dateFrom" id="dateFrom"  data-datetimepicker-config="{ minView: 'day' }" required></datetimepicker>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="control-label" for="dateTo">Date To</label>
                             <div class="controls">
-                                <input type="date" data-ng-model="dateTo" id="dateTo" class="form-control"  required>
+                                <datetimepicker data-ng-model="dateTo" id="dateTo"  data-datetimepicker-config="{ minView: 'day' }" required></datetimepicker>
                             </div>
                         </div>
                     </div>
