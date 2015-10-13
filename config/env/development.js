@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost:27017/findmytraining',
+	db: 'mongodb://Liju:5indmytraining.com@ds037234.mongolab.com:37234/findmytraining',//'mongodb://localhost:27017/findmytraining',
 	app: {
 		title: 'FindMyTraining.com - Development Environment'
 	},
