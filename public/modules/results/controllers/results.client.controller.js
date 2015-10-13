@@ -43,7 +43,7 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 				}
 			} else {
 				$scope.result.$remove(function() {
-					$location.path('results');
+					$location.path('view-courses');
 				});
 			}
 		};
@@ -53,7 +53,10 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 			var result = $scope.result;
 
 			result.$update(function() {
-				$location.path('results/' + result._id);
+				//$location.path('results/' + result._id);
+				$location.path('view-courses');
+				// Clear form fields
+				$scope.trainingProvider = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

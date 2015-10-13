@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
             <span class="label label-primary" data-ng-bind="results[0].city.city"></span>
-            <span class="label label-success" data-ng-bind="results[0].trainingName">Defaultbbbbbbbbb</span>
+            <span class="label label-success" data-ng-bind="results[0].courseCategory.courseName"></span>
             <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 (Modify Search)
             </a>
@@ -56,13 +56,13 @@
                             </small>
                             <div class="row">
                                 <div class="col-md-1">
-                                    <h4 data-ng-bind="result.companyName"></h4>
+                                    <h4 data-ng-bind="result.trainingProvider.companyName"></h4>
                                 </div>
                                 <div class="col-md-1 col-md-offset-8">
-                                    <h4  data-ng-bind="result.trainingName"></h4>
+                                    <h4  data-ng-bind="result.courseCategory.courseName"></h4>
                                 </div>
                                 <div class="col-md-2">
-                                    <h4 data-ng-bind="result.trainingType1"></h4>
+                                    <h4 data-ng-bind="result.deliveryType"></h4>
                                 </div>
                             </div>
                             <div class="row">
@@ -90,7 +90,7 @@
                                     <h4 class="control-label">Type:</h4>
                                 </div>
                                 <div class="col-md-3">
-                                    <h4 data-ng-bind="result.trainingType2"></h4>
+                                    <h4 data-ng-bind="result.timing"></h4>
                                 </div>
                                 <div class="col-md-1"  >
                                    <h4 class="control-label" style="margin-left: 110px;">Rating:</h4>

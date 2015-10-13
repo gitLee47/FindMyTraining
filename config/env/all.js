@@ -15,6 +15,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -27,7 +28,9 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/jquery/dist/jquery.js',
-				'public/lib/bootstrap/js/collapse.js'
+				'public/lib/bootstrap/js/collapse.js',
+				'public/lib/moment/moment.js',
+				'public/lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js'
 			]
 		},
 		css: [

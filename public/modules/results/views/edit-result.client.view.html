@@ -1,14 +1,111 @@
-<section data-ng-controller="ResultsController" data-ng-init="findOne()">
+<section data-ng-controller="ResultsController" data-ng-init="findOne();getDropDowns();">
     <div class="page-header">
-        <h1>Edit Result</h1>
+        <h1>Edit Course</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="trainingProvider">Training Provider</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="result.name" id="name" class="form-control" placeholder="Name" required>
+                        <select class="form-control" data-ng-model="result.trainingProvider" id="trainingProvider">
+                            <option ng-repeat="trainingprovider in trainingproviders"  value="{{trainingprovider._id}}">{{trainingprovider.companyName}}</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label" for="courseCategory">Course Name</label>
+                            <div class="controls">
+                                <select class="form-control" data-ng-model="result.courseCategory" id="courseCategory">
+                                    <option ng-repeat="coursecategory in coursecategories"  value="{{coursecategory._id}}">{{coursecategory.courseName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="deliveryType">Delivery Type</label>
+                            <div class="controls">
+                                <select class="form-control" data-ng-model="result.deliveryType" id="deliveryType">
+                                    <option  value="Classroom">Classroom</option>
+                                    <option  value="Online">Online</option>
+                                    <option  value="Virtual Classroom">Virtual Classroom</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label" for="duration">Duration</label>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="result.duration" id="duration" class="form-control" placeholder="Duration" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="controls">
+                                        <select class="form-control" data-ng-model="result.durationType" id="durationType">
+                                            <option  value="Hours">Hours</option>
+                                            <option  value="Days">Days</option>
+                                            <option  value="Months">Months</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="price">Price</label>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="controls">
+                                        <input type="text" data-ng-model="result.price" id="price" class="form-control" placeholder="Price" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="controls">
+                                        <select class="form-control" data-ng-model="result.currency" id="currency">
+                                            <option  value="INR">INR</option>
+                                            <option  value="USD">USD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label" for="dateFrom">Date From</label>
+                            <div class="controls">
+                                <datetimepicker data-ng-model="result.dateFrom" id="dateFrom"  data-datetimepicker-config="{ minView: 'day' }" required></datetimepicker>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="dateTo">Date To</label>
+                            <div class="controls">
+                                <datetimepicker data-ng-model="result.dateTo" id="dateTo"  data-datetimepicker-config="{ minView: 'day' }" required></datetimepicker>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="control-label" for="city">City</label>
+                            <div class="controls">
+                                <select class="form-control" data-ng-model="result.city" id="city">
+                                    <option ng-repeat="location in locations"  value="{{location._id}}">{{location.city}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="timing">Timing</label>
+                            <div class="controls">
+                                <select class="form-control" data-ng-model="result.timing" id="timing">
+                                    <option  value="Weekday">Weekday</option>
+                                    <option  value="Weekend">Weekend</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">

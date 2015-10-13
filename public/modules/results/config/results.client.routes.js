@@ -26,7 +26,7 @@ angular.module('results').config(['$stateProvider',
 			templateUrl: 'modules/results/views/view-result.client.view.html'
 		}).
 		state('editResult', {
-			url: '/results/:resultId/edit',
+			url: '/results/:resultId/edit/1',
 			templateUrl: 'modules/results/views/edit-result.client.view.html'
 		});
 	}

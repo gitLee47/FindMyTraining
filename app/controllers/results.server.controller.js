@@ -102,7 +102,7 @@ exports.listBySearch = function(req, res) {
 	else if((req.query['city'] != 'undefined') && (req.query['courseCategory'] != 'undefined')) {
 		console.log('in all');
 		Result.find().where('city').equals(req.query['city']).where('courseCategory').equals(req.query['courseCategory'])
-			.sort('-addedDate').populate('addedBy', 'displayName')
+			.sort('-addedDate').populate('addedBy', 'displayName').populate('trainingProvider','companyName').populate('courseCategory','courseName')
 			.exec(function (err, results) {
 				if (err) {
 					return res.status(400).send({
@@ -115,7 +115,7 @@ exports.listBySearch = function(req, res) {
 	}
 	else if ((req.query['city'] != 'undefined') && (req.query['courseCategory'] == 'undefined')) {
 		Result.find().where('city').equals(req.query['city'])   //Result.find().where('city', new RegExp(req.query['city'], 'i'))
-			.sort('-addedDate').populate('addedBy', 'displayName')
+			.sort('-addedDate').populate('addedBy', 'displayName').populate('trainingProvider','companyName').populate('courseCategory','courseName')
 			.exec(function (err, results) {
 				if (err) {
 					return res.status(400).send({
@@ -128,7 +128,7 @@ exports.listBySearch = function(req, res) {
 	}
 	else if ((req.query['city'] == 'undefined' ) && (req.query['courseCategory'] != 'undefined')) {
 		Result.find().where('courseCategory').equals(req.query['courseCategory'])
-			.sort('-addedDate').populate('addedBy', 'displayName')
+			.sort('-addedDate').populate('addedBy', 'displayName').populate('trainingProvider','companyName').populate('courseCategory','courseName')
 			.exec(function (err, results) {
 				if (err) {
 					return res.status(400).send({
