@@ -6,6 +6,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
 
+		//setting twitter widget
+		twttr.widgets.load();
 
 		// Search Result
 		$scope.search = function() {
