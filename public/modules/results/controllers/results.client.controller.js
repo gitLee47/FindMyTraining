@@ -86,5 +86,18 @@ angular.module('results').controller('ResultsController', ['$scope', '$statePara
 				resultId: $stateParams.resultId
 			});
 		};
+
+		// Search Result
+		$scope.search = function() {
+			$location.path('results/' + this.city+ '/' + this.courseCategory);
+		};
+
+		// Find a list of Cities and Course Type and TPs
+		$scope.getDropDowns = function() {
+			$scope.locations = Locations.query();
+			$scope.coursecategories = Coursecategories.query();
+		}
 	}
 ]);
+
+

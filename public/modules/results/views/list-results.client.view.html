@@ -7,13 +7,46 @@
     <div class="row">
             <span class="label label-primary" data-ng-bind="results[0].city.city"></span>
             <span class="label label-success" data-ng-bind="results[0].courseCategory.courseName"></span>
-            <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-ng-init="getDropDowns()">
                 (Modify Search)
             </a>
+
             <div class="collapse" id="collapseExample">
-                <div class="well">
-                    Search
-                </div>
+                <form data-ng-submit="search()" novalidate>
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-4">
+                                <div class="row" >  <!-- ng-controller="ExampleController" -->
+                                    <div class="col-xs-8 col-xs-offset-2">
+                                        <div class="controls">
+                                            <select class="form-control" data-ng-model="city" id="city">
+                                                <option value="" disabled selected>Select City</option>
+                                                <option ng-repeat="location in locations"  value="{{location._id}}">{{location.city}}</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-4">
+                                <div class="row" >  <!-- ng-controller="ExampleController" -->
+                                    <div class="col-xs-8 col-xs-offset-2">
+                                        <div class="controls">
+                                            <select class="form-control" data-ng-model="courseCategory" id="courseCategory">
+                                                <option value="" disabled selected>Select Course</option>
+                                                <option ng-repeat="coursecategory in coursecategories"  value="{{coursecategory._id}}">{{coursecategory.courseName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-4">
+                                <button type="submit" class="btn btn-success btn-md">Search    <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
     </div>
 
